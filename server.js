@@ -4,8 +4,8 @@ const dotenv = require('dotenv');
 const app = express();
 dotenv.config();
 
-app.get('/', async (req,res) => {
-    const sleepTimeInSeconds = process.env.SLEEP_TIME_IN_SECONDS;
+app.get('/:sleepTime', async (req,res) => {
+    const sleepTimeInSeconds = req.params.sleepTime;
 
     const waitForSleepTime = async () => {
         return new Promise((resolve) => {
